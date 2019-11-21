@@ -1,18 +1,25 @@
 package Controllers;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class dashboardController {
+public class dashboardController  {
 
     @FXML
     private JFXButton addSupplier;
@@ -28,6 +35,8 @@ public class dashboardController {
     private JFXButton addDepartment;
     @FXML
     private JFXButton addProduct;
+
+
 
 
     void addDepartmentAction(ActionEvent event) throws IOException {
@@ -83,8 +92,9 @@ public class dashboardController {
     }
 
     public void viewDepartmentsAction(javafx.event.ActionEvent actionEvent) throws IOException {
+
         //hides dashboard
-        viewDepartments.getScene().getWindow().hide();
+        addDepartment.getScene().getWindow().hide();
 
         //change to addDepartment
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/viewDepartments.fxml"));
@@ -94,6 +104,7 @@ public class dashboardController {
         depart.setScene(new Scene(root));
         depart.show();
         depart.setResizable(false);
+
 
     }
 
@@ -124,4 +135,6 @@ public class dashboardController {
         System.exit(0);
 
     }
+
+
 }

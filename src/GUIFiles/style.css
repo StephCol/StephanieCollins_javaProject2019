@@ -5,3 +5,9 @@
 #txtAreaDepartments{
 overlay: scroll;
 }
+
+JFXButton{
+
+-fx-background-color:none;
+
+}

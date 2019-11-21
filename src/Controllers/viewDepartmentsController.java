@@ -1,10 +1,14 @@
 package Controllers;
 
+import Main.Department;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+import javafx.application.Application;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -14,17 +18,21 @@ import javafx.stage.StageStyle;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class viewDepartmentsController {
+public class viewDepartmentsController extends addDepartmentController implements Initializable {
 
     @FXML
-    public JFXComboBox<String> cboDepartments = new JFXComboBox<>();
+    private ComboBox<String> comboBox;
 
-
+    @FXML
+    public JFXComboBox<String> cboDepartments;
 
     @FXML
     public ComboBox<String> cboNew;
-
 
     @FXML
     private JFXTextArea txtAreaProducts;
@@ -57,6 +65,7 @@ public class viewDepartmentsController {
 
     public void cboDepartments(javafx.event.ActionEvent actionEvent) {
 
+        //cboDepartments.getItems().addAll("hello");
 
     }
 
@@ -79,5 +88,32 @@ public class viewDepartmentsController {
         dash.setScene(new Scene(root));
         dash.show();
         dash.setResizable(false);
+    }
+
+    public void cboDepartmentsAction(javafx.event.ActionEvent actionEvent) {
+
+
+    }
+
+    public void cboNewAction(javafx.event.ActionEvent actionEvent) {
+    }
+
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        List<String> strings = new ArrayList<>();
+
+        for (Department d: departments) {
+
+            String department = d.getDepName();
+            strings.add(department);
+
+        }
+        strings.add("Watches");
+        strings.add("Rings");
+        strings.add("Necklaces");
+        //strings.add(departments.get(0).getDepName());
+        cboDepartments.setItems(FXCollections.observableArrayList(strings));
     }
 }

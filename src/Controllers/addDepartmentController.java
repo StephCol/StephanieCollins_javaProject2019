@@ -3,8 +3,10 @@ package Controllers;
 import Main.Department;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -13,11 +15,15 @@ import javafx.stage.StageStyle;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class addDepartmentController extends viewDepartmentsController{
+public class addDepartmentController  {
 
     public ArrayList<Department> departments = new ArrayList<>();
+
 
 
     @FXML
@@ -25,30 +31,19 @@ public class addDepartmentController extends viewDepartmentsController{
 
     @FXML
     private JFXButton btnAddDepartment;
-
     @FXML
     private JFXButton exitButton;
-
     @FXML
     void btnAddDepartmentAction(ActionEvent event) {
-
-
-
     }
-
     @FXML
     void exitButton(ActionEvent event) {
-
     }
-
     @FXML
     void exitToDash(MouseEvent event) {
-
     }
-
     @FXML
     void txtAddDepartment(ActionEvent event) {
-
     }
 
     public void exitButton(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -70,19 +65,19 @@ public class addDepartmentController extends viewDepartmentsController{
     }
 
     public void btnAddDepartmentAction(javafx.event.ActionEvent actionEvent) {
-        String depart = "";
+        String depart = "" ;
         Department newDepart = new Department(txtAddDepartment.getText());
 
         departments.add(newDepart);
-        //cboDepartments.getItems().addAll(newDepart.getDepName());
-
-        cboNew.getItems().addAll("hello", "hel", newDepart.getDepName());
 
         for(Department d:departments){
             depart += d.getDepName() + " " ;
         }
 
         System.out.println(depart);
+        txtAddDepartment.clear();
+
+
     }
 
     public void txtAddDepartment(javafx.event.ActionEvent actionEvent) {

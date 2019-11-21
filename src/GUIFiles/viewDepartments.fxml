@@ -12,7 +12,6 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.viewDepartmentsController">
    <children>
       <ImageView fitHeight="378.0" fitWidth="653.0" layoutX="-17.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
@@ -35,7 +34,7 @@
             <InnerShadow color="#797272" />
          </effect>
       </Line>
-      <JFXComboBox focusColor="WHITE" layoutX="250.0" layoutY="65.0" onAction="#cboDepartments" prefHeight="25.0" prefWidth="198.0" promptText="All Departments" unFocusColor="WHITE">
+      <JFXComboBox fx:id="cboDepartments" focusColor="WHITE" layoutX="250.0" layoutY="65.0" onAction="#cboDepartmentsAction" prefHeight="25.0" prefWidth="198.0" promptText="All Departments" unFocusColor="WHITE">
          <effect>
             <ColorAdjust brightness="0.45" />
          </effect>

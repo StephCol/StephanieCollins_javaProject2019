@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.dashboardController">
+   <children>
+      <ImageView fitHeight="380.0" fitWidth="618.0" layoutX="-18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/geometricBG.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="192.0" fitWidth="209.0" layoutX="196.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/jewelLogo.PNG" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="addSupplier" layoutX="401.0" layoutY="213.0" onAction="#addSupplierAction" prefHeight="33.0" prefWidth="185.0" text="ADD SUPPLIER" textFill="#fcfafa">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="viewSuppliers" layoutX="401.0" layoutY="250.0" onAction="#viewSuppliersAction" prefHeight="21.0" prefWidth="185.0" text="VIEW SUPPLIERS" textFill="#fcfafa">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="inStock" layoutX="208.0" layoutY="250.0" onAction="#inStockAction" prefHeight="29.0" prefWidth="185.0" text="IN STOCK" textFill="#fcfafa">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="outStock" layoutX="208.0" layoutY="286.0" onAction="#outStockAction" prefHeight="25.0" prefWidth="185.0" text="OUT OF STOCK" textFill="#fcfafa">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="viewDepartments" layoutX="-1.0" layoutY="213.0" onAction="#viewDepartmentsAction" prefHeight="43.0" prefWidth="216.0" text="VIEW DEPARTMENTS" textFill="#fcfafa">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="addDepartment" layoutX="-1.0" layoutY="250.0" onAction="#addDepartmentAction" prefHeight="30.0" prefWidth="216.0" text="ADD DEPARTMENT" textFill="#fcfafa">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="addProduct" layoutX="192.0" layoutY="213.0" onAction="#addProductAction" prefHeight="30.0" prefWidth="216.0" text="ADD PRODUCT" textFill="#fcfafa">
+         <font>
+            <Font name="Segoe UI Light" size="20.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="28.0" fitWidth="23.0" layoutX="553.0" layoutY="22.0" onMouseClicked="#exitMessage" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/x4.jpg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="26.0" layoutY="150.0" opacity="0.5" prefHeight="65.0" prefWidth="163.0" text="DEPARTMENTS" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="22.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="201.0" layoutY="150.0" opacity="0.5" prefHeight="65.0" prefWidth="199.0" text="STOCK CONTROL" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="22.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="394.0" layoutY="150.0" opacity="0.5" prefHeight="65.0" prefWidth="199.0" text="SUPPLIERS" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="22.0" />
+         </font>
+      </Label>
+      <Line endX="59.0" layoutX="127.0" layoutY="202.0" startX="-100.0" stroke="#fff9f9">
+         <effect>
+            <InnerShadow color="#797272" />
+         </effect>
+      </Line>
+      <Line endX="59.0" layoutX="514.0" layoutY="201.0" startX="-100.0" stroke="#fff9f9">
+         <effect>
+            <InnerShadow color="#797272" />
+         </effect>
+      </Line>
+      <Line endX="59.0" layoutX="320.0" layoutY="202.0" startX="-100.0" stroke="#fff9f9">
+         <effect>
+            <InnerShadow color="#797272" />
+         </effect>
+      </Line>
+   </children>
+</AnchorPane>

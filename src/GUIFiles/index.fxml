@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.indexController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/geometricBG.jpg" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="338.0" fitWidth="376.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/jewelLogo.PNG" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="enter" layoutX="353.0" layoutY="120.0" onAction="#enterAction" prefHeight="105.0" prefWidth="212.0" stylesheets="@style.css" text="ENTER" textAlignment="CENTER" textFill="#f8f8f8c9" wrapText="true">
+         <font>
+            <Font name="Segoe UI Light" size="49.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

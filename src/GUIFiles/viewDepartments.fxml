@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.viewDepartmentsController">
+   <children>
+      <ImageView fitHeight="378.0" fitWidth="653.0" layoutX="-17.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/geometricBG.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="192.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/jewelLogo.PNG" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="273.0" opacity="0.5" prefHeight="65.0" prefWidth="233.0" text="DEPARTMENTS" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="22.0" />
+         </font>
+      </Label>
+      <Line endX="59.0" layoutX="410.0" layoutY="56.0" startX="-100.0" stroke="#fff9f9">
+         <effect>
+            <InnerShadow color="#797272" />
+         </effect>
+      </Line>
+      <JFXComboBox focusColor="WHITE" layoutX="250.0" layoutY="65.0" onAction="#cboDepartments" prefHeight="25.0" prefWidth="198.0" promptText="All Departments" unFocusColor="WHITE">
+         <effect>
+            <ColorAdjust brightness="0.45" />
+         </effect>
+      </JFXComboBox>
+      <JFXTextArea id="txtAreaDepartments" fx:id="txtAreaProducts" editable="false" layoutX="208.0" layoutY="99.0" prefHeight="227.0" prefWidth="364.0" style="-fx-background-color: rgb(255,255,255,.2);">
+         <font>
+            <Font name="Segoe UI Light" size="13.0" />
+         </font>
+      </JFXTextArea>
+      <JFXButton fx:id="btnSearchDepartments" layoutX="448.0" layoutY="63.0" onAction="#btnSearchDepartments" opacity="0.71" prefHeight="25.0" prefWidth="71.0" text="SEARCH" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="28.0" fitWidth="23.0" layoutX="581.0" layoutY="21.0" onMouseClicked="#exitToDash" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/x4.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="exitButton" layoutX="566.0" layoutY="11.0" onAction="#exitButton" opacity="0.0" prefHeight="43.0" prefWidth="54.0" text="X" />
+   </children>
+</AnchorPane>

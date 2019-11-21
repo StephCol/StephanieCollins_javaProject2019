@@ -82,7 +82,19 @@ public class dashboardController {
     public void outStockAction(javafx.event.ActionEvent actionEvent) {
     }
 
-    public void viewDepartmentsAction(javafx.event.ActionEvent actionEvent) {
+    public void viewDepartmentsAction(javafx.event.ActionEvent actionEvent) throws IOException {
+        //hides dashboard
+        viewDepartments.getScene().getWindow().hide();
+
+        //change to addDepartment
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/viewDepartments.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage depart = new Stage();
+        depart.initStyle(StageStyle.UNDECORATED);
+        depart.setScene(new Scene(root));
+        depart.show();
+        depart.setResizable(false);
+
     }
 
     public void addDepartmentAction(javafx.event.ActionEvent actionEvent) throws IOException {

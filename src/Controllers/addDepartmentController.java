@@ -1,5 +1,6 @@
 package Controllers;
 
+import Main.Department;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -12,8 +13,12 @@ import javafx.stage.StageStyle;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 
-public class addDepartmentController {
+public class addDepartmentController extends viewDepartmentsController{
+
+    public ArrayList<Department> departments = new ArrayList<>();
+
 
     @FXML
     private JFXTextField txtAddDepartment;
@@ -26,6 +31,8 @@ public class addDepartmentController {
 
     @FXML
     void btnAddDepartmentAction(ActionEvent event) {
+
+
 
     }
 
@@ -63,6 +70,19 @@ public class addDepartmentController {
     }
 
     public void btnAddDepartmentAction(javafx.event.ActionEvent actionEvent) {
+        String depart = "";
+        Department newDepart = new Department(txtAddDepartment.getText());
+
+        departments.add(newDepart);
+        //cboDepartments.getItems().addAll(newDepart.getDepName());
+
+        cboNew.getItems().addAll("hello", "hel", newDepart.getDepName());
+
+        for(Department d:departments){
+            depart += d.getDepName() + " " ;
+        }
+
+        System.out.println(depart);
     }
 
     public void txtAddDepartment(javafx.event.ActionEvent actionEvent) {

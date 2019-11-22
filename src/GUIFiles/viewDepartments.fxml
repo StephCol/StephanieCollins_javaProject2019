@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.InnerShadow?>
@@ -34,7 +36,7 @@
             <InnerShadow color="#797272" />
          </effect>
       </Line>
-      <JFXComboBox fx:id="cboDepartments" focusColor="WHITE" layoutX="250.0" layoutY="65.0" onAction="#cboDepartmentsAction" prefHeight="25.0" prefWidth="198.0" promptText="All Departments" unFocusColor="WHITE">
+      <JFXComboBox fx:id="cboDepartments" focusColor="WHITE" layoutX="250.0" layoutY="65.0" prefHeight="25.0" prefWidth="198.0" promptText="All Departments" unFocusColor="WHITE">
          <effect>
             <ColorAdjust brightness="0.45" />
          </effect>
@@ -55,5 +57,36 @@
          </image>
       </ImageView>
       <JFXButton fx:id="exitButton" layoutX="566.0" layoutY="11.0" onAction="#exitButton" opacity="0.0" prefHeight="43.0" prefWidth="54.0" text="X" />
+      <JFXTextField fx:id="txtAddDepartment" focusColor="#fafafa00" layoutX="12.0" layoutY="223.0" prefHeight="37.0" prefWidth="101.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+         <font>
+            <Font name="Segoe UI Light" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnAddDepartment" layoutX="121.0" layoutY="223.0" onAction="#btnAddDepartmentAction" prefHeight="37.0" prefWidth="78.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="6.0" layoutY="170.0" opacity="0.94" prefHeight="43.0" prefWidth="198.0" text="DEPARTMENT NAME" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtRemoveDepartment" focusColor="#fafafa00" layoutX="11.0" layoutY="274.0" prefHeight="37.0" prefWidth="101.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+         <font>
+            <Font name="Segoe UI Light" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnRemoveDepartment" layoutX="121.0" layoutY="274.0" onAction="#btnRemoveDepartmentAction" prefHeight="37.0" prefWidth="78.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="REMOVE" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
    </children>
 </AnchorPane>

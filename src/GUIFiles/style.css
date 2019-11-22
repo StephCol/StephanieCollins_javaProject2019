@@ -8,6 +8,6 @@ overlay: scroll;
 
 JFXButton{
 
--fx-background-color:none;
+-fx-background-color: transparent;
 
 }

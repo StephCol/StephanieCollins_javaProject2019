@@ -1,11 +1,14 @@
 package Controllers;
 
 import Main.Department;
+import Main.Supplier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,7 +18,6 @@ import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -23,57 +25,58 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class viewDepartmentsController extends addDepartmentController implements Initializable {
+public class viewDepartmentsController implements Initializable {
 
+
+    //-------------------ADD PRODUCT GUI ATTRIBUTES-------------------------
     @FXML
-    private ComboBox<String> comboBox;
+    private JFXTextField txtBrand;
+    @FXML
+    private JFXTextField txtRefNo;
+    @FXML
+    private JFXTextField txtStockNo;
+    @FXML
+    private JFXTextField txtName;
+    @FXML
+    private JFXTextField txtCostP;
+    @FXML
+    private JFXTextField txtSaleP;
+    @FXML
+    private JFXComboBox<Supplier> cboSupplier;
+    @FXML
+    private JFXButton btnAddProduct;
+    @FXML
+    private JFXTextField txtProductResult;
+
+
+    //-------------------------------VIEW DEPARTMENTS GUI ATTRIBUTES------------------------------
+    @FXML
+    private JFXTextArea txtAreaProducts;
+    @FXML
+    private JFXButton btnSearchDepartments;
+    @FXML
+    private JFXTextField txtRemoveDepartment;
+    @FXML
+    private JFXButton btnRemoveDepartment;
+    @FXML
+    private JFXTextField txtAddDepartment;
+    @FXML
+    private JFXButton btnAddDepartment;
+
+    //-----------------------COMMON GUI ATTRIBUTES---------------------------------
 
     @FXML
     public JFXComboBox<String> cboDepartments;
-
-    @FXML
-    public ComboBox<String> cboNew;
-
-    @FXML
-    private JFXTextArea txtAreaProducts;
-
-    @FXML
-    private JFXButton btnSearchDepartments;
-
     @FXML
     private JFXButton exitButton;
 
-    @FXML
-    void btnSearchDepartments(ActionEvent event) {
+    //-----------------------------ARRAYS & LISTS ----------------------------------
 
-    }
 
-    @FXML
-    void cboDepartments(ActionEvent event) {
+    public ArrayList<Department> departments = new ArrayList<>();
+    public List<String> DepartmentList = new ArrayList<>();
 
-    }
-
-    @FXML
-    void exitButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void exitToDash(MouseEvent event) {
-
-    }
-
-    public void cboDepartments(javafx.event.ActionEvent actionEvent) {
-
-        //cboDepartments.getItems().addAll("hello");
-
-    }
-
-    public void btnSearchDepartments(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void exitToDash(javafx.scene.input.MouseEvent mouseEvent) {
-    }
+    //-------------------------- EXIT TO DASHBOARD --------------------------------
 
     public void exitButton(javafx.event.ActionEvent actionEvent) throws IOException {
 
@@ -90,30 +93,64 @@ public class viewDepartmentsController extends addDepartmentController implement
         dash.setResizable(false);
     }
 
-    public void cboDepartmentsAction(javafx.event.ActionEvent actionEvent) {
+    //---------------------------ADD AND REMOVE DEPARTMENTS--------------------------------------
+
+    public void btnAddDepartmentAction(javafx.event.ActionEvent actionEvent) throws IOException {
+
+        String depart = "" ;
+        Department newDepart = new Department(txtAddDepartment.getText());
+
+        departments.add(newDepart);
+        DepartmentList.add(txtAddDepartment.getText());
+
+        for(Department d:departments){
+            depart += d.getDepName() + " " ;
+        }
+
+        System.out.println(depart);
+        System.out.println(DepartmentList.toString());
+
+        cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+        txtAddDepartment.clear();
+
+    }
+
+    public void btnRemoveDepartmentAction(javafx.event.ActionEvent actionEvent) {
+
+        String remove = txtRemoveDepartment.getText();
+
+        for (int i = 0; i < DepartmentList.size(); i++) {
+
+            if (remove.equals(DepartmentList.get(i))) {
+                DepartmentList.remove(i);
+                departments.remove(i);
+                cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+            }
+
+        }
+
+        txtRemoveDepartment.clear();
+    }
+
+    //---------------------SEARCH DEPARTMENTS & LOAD PRODUCTS TO TEXT AREA--------------------
+
+    public void btnSearchDepartments(javafx.event.ActionEvent actionEvent) { }
+
+    //--------------------------------------ADD PRODUCTS---------------------------------------
+
+    public void btnAddProductAction(ActionEvent actionEvent) {
 
 
     }
 
-    public void cboNewAction(javafx.event.ActionEvent actionEvent) {
-    }
-
+    //----------------------------------------IMPLEMENT INTERFACE--------------------------------------------
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        List<String> strings = new ArrayList<>();
-
-        for (Department d: departments) {
-
-            String department = d.getDepName();
-            strings.add(department);
-
-        }
-        strings.add("Watches");
-        strings.add("Rings");
-        strings.add("Necklaces");
-        //strings.add(departments.get(0).getDepName());
-        cboDepartments.setItems(FXCollections.observableArrayList(strings));
     }
-}
+
+
+
+
+}//END OF CONTROLLER

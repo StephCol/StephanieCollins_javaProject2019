@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class indexController  {
+public class indexController implements Initializable {
 
     @FXML
     private JFXButton enter;
@@ -36,5 +36,8 @@ public class indexController  {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
 }

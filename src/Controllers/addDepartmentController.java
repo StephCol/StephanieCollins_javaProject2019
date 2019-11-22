@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class addDepartmentController  {
+public class addDepartmentController extends viewDepartmentsController {
 
     public ArrayList<Department> departments = new ArrayList<>();
 
@@ -65,17 +66,7 @@ public class addDepartmentController  {
     }
 
     public void btnAddDepartmentAction(javafx.event.ActionEvent actionEvent) {
-        String depart = "" ;
-        Department newDepart = new Department(txtAddDepartment.getText());
 
-        departments.add(newDepart);
-
-        for(Department d:departments){
-            depart += d.getDepName() + " " ;
-        }
-
-        System.out.println(depart);
-        txtAddDepartment.clear();
 
 
     }

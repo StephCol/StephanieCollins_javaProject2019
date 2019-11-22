@@ -22,7 +22,6 @@
                   <Font name="Segoe UI Light" size="22.0" />
                </font>
             </Label>
-            <JFXButton fx:id="exitButton" layoutX="566.0" layoutY="11.0" onAction="#exitButton" opacity="0.0" prefHeight="43.0" prefWidth="54.0" text="X" />
             <ImageView fitHeight="374.0" fitWidth="653.0" layoutX="-17.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/geometricBG.jpg" />
@@ -33,27 +32,27 @@
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtBrand" focusColor="#fafafa00" layoutX="447.0" layoutY="122.0" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+            <JFXTextField fx:id="txtBrand" focusColor="#fafafa00" layoutX="447.0" layoutY="122.0" prefHeight="30.0" prefWidth="137.0" promptText="Thomas Sabo" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>
             </JFXTextField>
-            <Label alignment="CENTER" layoutX="195.0" layoutY="71.0" opacity="0.94" prefHeight="43.0" prefWidth="71.0" text="REF NO" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="181.0" layoutY="71.0" opacity="0.94" prefHeight="43.0" prefWidth="71.0" text="REF NO" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtRefNo" focusColor="#fafafa00" layoutX="268.0" layoutY="77.0" prefHeight="1.0" prefWidth="101.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+            <JFXTextField fx:id="txtRefNo" focusColor="#fafafa00" layoutX="255.0" layoutY="77.0" prefHeight="30.0" prefWidth="114.0" promptText="12345" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>
             </JFXTextField>
-            <Label alignment="CENTER" layoutX="199.0" layoutY="115.0" opacity="0.94" prefHeight="43.0" prefWidth="64.0" text="NAME" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="186.0" layoutY="115.0" opacity="0.94" prefHeight="43.0" prefWidth="64.0" text="NAME" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtStockNo" focusColor="#fafafa00" layoutX="507.0" layoutY="75.0" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+            <JFXTextField fx:id="txtStockNo" focusColor="#fafafa00" layoutX="507.0" layoutY="75.0" prefHeight="30.0" prefWidth="78.0" promptText="12" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>
@@ -63,7 +62,7 @@
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtName" focusColor="#fafafa00" layoutX="268.0" layoutY="121.0" prefHeight="1.0" prefWidth="101.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+            <JFXTextField fx:id="txtName" focusColor="#fafafa00" layoutX="255.0" layoutY="121.0" prefHeight="30.0" prefWidth="114.0" promptText="9ct Charm" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>
@@ -73,7 +72,7 @@
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtCostP" focusColor="#fafafa00" layoutX="507.0" layoutY="166.0" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+            <JFXTextField fx:id="txtCostP" focusColor="#fafafa00" layoutX="507.0" layoutY="166.0" prefHeight="30.0" prefWidth="78.0" promptText="15.00" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>
@@ -83,19 +82,19 @@
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="txtSaleP" focusColor="#fafafa00" layoutX="507.0" layoutY="209.0" prefHeight="30.0" prefWidth="78.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+            <JFXTextField fx:id="txtSaleP" focusColor="#fafafa00" layoutX="507.0" layoutY="209.0" prefHeight="30.0" prefWidth="78.0" promptText="30.00" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="cboSupplier" layoutX="268.0" layoutY="169.0" prefHeight="25.0" prefWidth="101.0" />
-            <JFXComboBox fx:id="cboDepartments" layoutX="268.0" layoutY="212.0" prefHeight="25.0" prefWidth="101.0" />
-            <Label alignment="CENTER" layoutX="177.0" layoutY="167.0" opacity="0.94" prefHeight="43.0" prefWidth="88.0" text="SUPPLIER" textAlignment="CENTER" textFill="WHITE">
+            <JFXComboBox fx:id="cboSupplier" layoutX="255.0" layoutY="169.0" prefHeight="25.0" prefWidth="114.0" />
+            <JFXComboBox fx:id="cboDepartments" layoutX="255.0" layoutY="212.0" prefHeight="25.0" prefWidth="114.0" />
+            <Label alignment="CENTER" layoutX="162.0" layoutY="166.0" opacity="0.94" prefHeight="43.0" prefWidth="88.0" text="SUPPLIER" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="149.0" layoutY="203.0" opacity="0.94" prefHeight="43.0" prefWidth="114.0" text="DEPARTMENT" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="136.0" layoutY="203.0" opacity="0.94" prefHeight="43.0" prefWidth="114.0" text="DEPARTMENT" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Light" size="18.0" />
                </font>
@@ -108,7 +107,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXTextField fx:id="txtProductResult" editable="false" layoutX="274.0" layoutY="299.0" prefHeight="25.0" prefWidth="233.0" visible="false">
+            <JFXTextField fx:id="txtProductResult" editable="false" focusColor="#405aa800" layoutX="274.0" layoutY="299.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="#4d4d4d00" visible="false">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>
@@ -130,6 +129,7 @@
             <Image url="@Images/x4.jpg" />
          </image>
       </ImageView>
+      <JFXButton fx:id="exitButton" layoutX="576.0" layoutY="21.0" onAction="#exitButton" opacity="0.0" prefHeight="43.0" prefWidth="54.0" text="X" />
       <Line endX="59.0" layoutX="420.0" layoutY="66.0" startX="-100.0" stroke="#fff9f9">
          <effect>
             <InnerShadow color="#797272" />

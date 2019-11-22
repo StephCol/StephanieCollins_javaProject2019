@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class dashboardController  {
+public class dashboardController  implements Initializable{
 
     @FXML
     private JFXButton addSupplier;
@@ -38,47 +38,6 @@ public class dashboardController  {
 
 
 
-
-    void addDepartmentAction(ActionEvent event) throws IOException {
-
-
-    }
-
-
-    void addProductAction(ActionEvent event) {
-
-    }
-
-
-    void addSupplierAction(ActionEvent event) {
-
-    }
-
-
-    void exitMessage(MouseEvent event) {
-
-    }
-
-
-    void inStockAction(ActionEvent event) {
-
-    }
-
-
-    void outStockAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void viewDepartmentsAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void viewSuppliersAction(ActionEvent event) {
-
-    }
-
     public void addSupplierAction(javafx.event.ActionEvent actionEvent) {
     }
 
@@ -91,12 +50,10 @@ public class dashboardController  {
     public void outStockAction(javafx.event.ActionEvent actionEvent) {
     }
 
+    //------------------------------LOAD ADD/VIEW DEPARTMENTS GUI--------------------------------
+
     public void viewDepartmentsAction(javafx.event.ActionEvent actionEvent) throws IOException {
-
-        //hides dashboard
-        addDepartment.getScene().getWindow().hide();
-
-        //change to addDepartment
+        viewDepartments.getScene().getWindow().hide();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/viewDepartments.fxml"));
         Parent root = fxmlLoader.load();
         Stage depart = new Stage();
@@ -104,18 +61,11 @@ public class dashboardController  {
         depart.setScene(new Scene(root));
         depart.show();
         depart.setResizable(false);
-
-
     }
 
     public void addDepartmentAction(javafx.event.ActionEvent actionEvent) throws IOException {
-
-
-        //hides dashboard
         addDepartment.getScene().getWindow().hide();
-
-        //change to addDepartment
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/addDepartment.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/viewDepartments.fxml"));
         Parent root = fxmlLoader.load();
         Stage depart = new Stage();
         depart.initStyle(StageStyle.UNDECORATED);
@@ -124,17 +74,30 @@ public class dashboardController  {
         depart.setResizable(false);
     }
 
-    public void addProductAction(javafx.event.ActionEvent actionEvent) {
+    //------------------------------LOAD ADD PRODUCTS GUI--------------------------------
+
+    public void addProductAction(javafx.event.ActionEvent actionEvent) throws IOException {
+        addProduct.getScene().getWindow().hide();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/addProducts.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage prods = new Stage();
+        prods.initStyle(StageStyle.UNDECORATED);
+        prods.setScene(new Scene(root));
+        prods.show();
+        prods.setResizable(false);
     }
+
+    //------------------------------CLOSE PROGRAM--------------------------------
 
     public void exitMessage(javafx.scene.input.MouseEvent mouseEvent) {
-
         //hides dashboard
         addDepartment.getScene().getWindow().hide();
-
         System.exit(0);
-
     }
 
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+    }
 }

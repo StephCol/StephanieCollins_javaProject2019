@@ -1,6 +1,7 @@
 package Controllers;
 
 import Main.Department;
+import Main.Product;
 import Main.Supplier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -42,7 +43,7 @@ public class viewDepartmentsController implements Initializable {
     @FXML
     private JFXTextField txtSaleP;
     @FXML
-    private JFXComboBox<Supplier> cboSupplier;
+    private JFXComboBox<String> cboSupplier;
     @FXML
     private JFXButton btnAddProduct;
     @FXML
@@ -75,6 +76,8 @@ public class viewDepartmentsController implements Initializable {
 
     public ArrayList<Department> departments = new ArrayList<>();
     public List<String> DepartmentList = new ArrayList<>();
+    public List<String> SuppliersList = new ArrayList<>();
+    public ArrayList<Supplier> suppliers = new ArrayList<>();
 
     //-------------------------- EXIT TO DASHBOARD --------------------------------
 
@@ -140,6 +143,62 @@ public class viewDepartmentsController implements Initializable {
 
     public void btnAddProductAction(ActionEvent actionEvent) {
 
+        String refNoAsString = txtRefNo.getText();
+        String stockAsString = txtStockNo.getText();
+        String name = txtName.getText();
+        String brand = txtBrand.getText();
+        String department = cboDepartments.getValue();
+        String supplier = cboSupplier.getValue();
+        String costPriceAsString = txtCostP.getText();
+        String salePriceAsString = txtSaleP.getText();
+
+        if(!refNoAsString.equals("") || !stockAsString.equals("") || !name.equals("") || !brand.equals("") || !department.equals("")
+            || !supplier.equals("") || !costPriceAsString.equals("") || !salePriceAsString.equals("") ){
+
+            txtProductResult.setVisible(false);
+
+            int refNo = Integer.parseInt(refNoAsString);
+            int stock = Integer.parseInt(stockAsString);
+            Double costPrice = Double.parseDouble(costPriceAsString);
+            Double salePrice = Double.parseDouble(salePriceAsString);
+
+            if(salePrice > costPrice){
+
+                txtRefNo.clear();
+                txtStockNo.clear();
+                txtName.clear();
+                txtBrand.clear();
+                txtCostP.clear();
+                txtSaleP.clear();
+
+                Product newProduct = new Product(refNo, name, brand, stock, supplier, department, costPrice,salePrice);
+
+                for(Department d : departments){
+
+                    if(d.getDepName().equals(department)){
+                        d.addProduct(newProduct);
+                        System.out.println(d.getProductList());
+
+                    }
+
+
+                }
+
+            }
+            else{
+                txtProductResult.setText("Sale Price must be more than cost price");
+                txtProductResult.setVisible(true);
+            }
+
+
+
+        }
+        else{
+            txtProductResult.setText("Please provide all product details");
+            txtProductResult.setVisible(true);
+        }
+
+
 
     }
 
@@ -147,6 +206,24 @@ public class viewDepartmentsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        /*DepartmentList.add("Rings");
+        departments.add(new Department("Rings"));
+        DepartmentList.add("Watches");
+        departments.add(new Department("Watches"));
+        DepartmentList.add("Bracelets");
+        departments.add(new Department("Bracelets"));
+
+        cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+
+
+        SuppliersList.add("IBB Dublin");
+        SuppliersList.add("Swarovski");
+        SuppliersList.add("Timemark");
+        cboSupplier.setItems(FXCollections.observableArrayList(SuppliersList));*/
+
+        cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+
 
     }
 

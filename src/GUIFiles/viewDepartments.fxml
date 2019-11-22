@@ -51,7 +51,7 @@
             <Font name="Segoe UI Light" size="13.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="28.0" fitWidth="23.0" layoutX="581.0" layoutY="21.0" onMouseClicked="#exitToDash" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="28.0" fitWidth="23.0" layoutX="581.0" layoutY="21.0"  pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Images/x4.jpg" />
          </image>

@@ -18,6 +18,7 @@ public class indexController implements Initializable {
     @FXML
     private JFXButton enter;
 
+    //---------------------------LOAD DASHBOARD---------------------------------------
     @FXML
     public void enterAction(javafx.event.ActionEvent actionEvent) throws IOException {
 
@@ -36,6 +37,7 @@ public class indexController implements Initializable {
 
     }
 
+    //---------------------------IMPLEMENT INTERFACE METHODS---------------------------------------
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

@@ -16,9 +16,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -49,8 +51,9 @@ public class viewDepartmentsController implements Initializable {
     @FXML
     private JFXTextField txtProductResult;
 
-
     //-------------------------------VIEW DEPARTMENTS GUI ATTRIBUTES------------------------------
+    @FXML
+    public AnchorPane departmentsPane;
     @FXML
     private JFXTextArea txtAreaProducts;
     @FXML
@@ -86,6 +89,8 @@ public class viewDepartmentsController implements Initializable {
         //hides add Department
         exitButton.getScene().getWindow().hide();
 
+        //departmentsPane.setVisible(false);
+        //dashboardPane.setVisible(true);
         //return to Dashboard
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/dashboard.fxml"));
         Parent root = fxmlLoader.load();
@@ -102,8 +107,9 @@ public class viewDepartmentsController implements Initializable {
 
         String depart = "" ;
         Department newDepart = new Department(txtAddDepartment.getText());
-
+        //departments = new ArrayList<>();
         departments.add(newDepart);
+        //DepartmentList = new ArrayList<>();
         DepartmentList.add(txtAddDepartment.getText());
 
         for(Department d:departments){
@@ -137,7 +143,21 @@ public class viewDepartmentsController implements Initializable {
 
     //---------------------SEARCH DEPARTMENTS & LOAD PRODUCTS TO TEXT AREA--------------------
 
-    public void btnSearchDepartments(javafx.event.ActionEvent actionEvent) { }
+    public void btnSearchDepartments(javafx.event.ActionEvent actionEvent) {
+
+        String selectedDepart = cboDepartments.getValue();
+
+        String prodList = "";
+
+
+        for (Department d : departments){
+
+            if(d.getDepName().equals(selectedDepart)){
+                prodList = d.getProductList();
+            }
+            txtAreaProducts.appendText(prodList);
+        }
+    }
 
     //--------------------------------------ADD PRODUCTS---------------------------------------
 
@@ -149,11 +169,12 @@ public class viewDepartmentsController implements Initializable {
         String brand = txtBrand.getText();
         String department = cboDepartments.getValue();
         String supplier = cboSupplier.getValue();
+        System.out.println(supplier);
         String costPriceAsString = txtCostP.getText();
         String salePriceAsString = txtSaleP.getText();
 
-        if(!refNoAsString.equals("") || !stockAsString.equals("") || !name.equals("") || !brand.equals("") || !department.equals("")
-            || !supplier.equals("") || !costPriceAsString.equals("") || !salePriceAsString.equals("") ){
+        if(!refNoAsString.equals("") && !stockAsString.equals("") && !name.equals("") && !brand.equals("") && !department.equals("")
+                && !supplier.equals("") && !costPriceAsString.equals("") && !salePriceAsString.equals("") ){
 
             txtProductResult.setVisible(false);
 
@@ -171,20 +192,21 @@ public class viewDepartmentsController implements Initializable {
                 txtCostP.clear();
                 txtSaleP.clear();
 
-                Product newProduct = new Product(refNo, name, brand, stock, supplier, department, costPrice,salePrice);
+                Product newProduct = new Product(refNo, name, brand, stock,supplier, department, costPrice,salePrice);
+
+                System.out.println(newProduct.toString());
 
                 for(Department d : departments){
 
                     if(d.getDepName().equals(department)){
+                        System.out.println(d.getDepName());
+
+
                         d.addProduct(newProduct);
                         System.out.println(d.getProductList());
-
                     }
-
-
-                }
-
-            }
+                }//for
+            }//if
             else{
                 txtProductResult.setText("Sale Price must be more than cost price");
                 txtProductResult.setVisible(true);
@@ -207,27 +229,22 @@ public class viewDepartmentsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        /*DepartmentList.add("Rings");
+        DepartmentList.add("Rings");
         departments.add(new Department("Rings"));
         DepartmentList.add("Watches");
         departments.add(new Department("Watches"));
         DepartmentList.add("Bracelets");
         departments.add(new Department("Bracelets"));
-
         cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
 
 
-        SuppliersList.add("IBB Dublin");
+        /*SuppliersList.add("IBB Dublin");
         SuppliersList.add("Swarovski");
         SuppliersList.add("Timemark");
         cboSupplier.setItems(FXCollections.observableArrayList(SuppliersList));*/
 
-        cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
-
-
+        //cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
     }
-
-
 
 
 }//END OF CONTROLLER

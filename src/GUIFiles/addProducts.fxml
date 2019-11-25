@@ -107,7 +107,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXTextField fx:id="txtProductResult" editable="false" focusColor="#405aa800" layoutX="274.0" layoutY="299.0" prefHeight="25.0" prefWidth="233.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="#4d4d4d00" visible="false">
+            <JFXTextField fx:id="txtProductResult" alignment="CENTER" editable="false" focusColor="#405aa800" layoutX="244.0" layoutY="306.0" prefHeight="30.0" prefWidth="293.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="#4d4d4d00" visible="false">
                <font>
                   <Font name="Segoe UI Light" size="14.0" />
                </font>

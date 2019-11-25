@@ -1,22 +1,16 @@
 package Controllers;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class dashboardController  implements Initializable{
@@ -36,6 +30,9 @@ public class dashboardController  implements Initializable{
     @FXML
     private JFXButton addProduct;
 
+    @FXML
+    public AnchorPane dashboardPane;
+
 
 
     public void addSupplierAction(javafx.event.ActionEvent actionEvent) {
@@ -54,6 +51,10 @@ public class dashboardController  implements Initializable{
 
     public void viewDepartmentsAction(javafx.event.ActionEvent actionEvent) throws IOException {
         viewDepartments.getScene().getWindow().hide();
+
+        //dashboardPane.setVisible(false);
+       //departmentsPane.setVisible();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/viewDepartments.fxml"));
         Parent root = fxmlLoader.load();
         Stage depart = new Stage();
@@ -64,7 +65,8 @@ public class dashboardController  implements Initializable{
     }
 
     public void addDepartmentAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        addDepartment.getScene().getWindow().hide();
+        //addDepartment.getScene().getWindow().hide();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/viewDepartments.fxml"));
         Parent root = fxmlLoader.load();
         Stage depart = new Stage();
@@ -85,6 +87,8 @@ public class dashboardController  implements Initializable{
         prods.setScene(new Scene(root));
         prods.show();
         prods.setResizable(false);
+
+
     }
 
     //------------------------------CLOSE PROGRAM--------------------------------

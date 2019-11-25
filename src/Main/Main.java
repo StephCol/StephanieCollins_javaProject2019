@@ -9,7 +9,11 @@ package Main;
         import javafx.stage.Stage;
         import javafx.stage.StageStyle;
 
+        import java.util.ArrayList;
+        import java.util.List;
+
 public class Main extends Application {
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -23,12 +27,8 @@ public class Main extends Application {
         primaryStage.setResizable(false);
     }
 
-
-
     public static void main(String[] args) {
-
         launch(args);
-
     }
 }
 

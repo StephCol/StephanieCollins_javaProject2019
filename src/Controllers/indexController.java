@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class indexController implements Initializable {
+public class indexController  {
 
     @FXML
     private JFXButton enter;
@@ -33,13 +33,5 @@ public class indexController implements Initializable {
         dashboard.setScene(new Scene(root));
         dashboard.show();
         dashboard.setResizable(false);
-
-
-    }
-
-    //---------------------------IMPLEMENT INTERFACE METHODS---------------------------------------
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 }

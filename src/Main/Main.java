@@ -3,9 +3,12 @@
 package Main;
 
         import javafx.application.Application;
+        import javafx.fxml.FXML;
         import javafx.fxml.FXMLLoader;
         import javafx.scene.Parent;
         import javafx.scene.Scene;
+        import javafx.scene.layout.AnchorPane;
+        import javafx.scene.layout.HBox;
         import javafx.stage.Stage;
         import javafx.stage.StageStyle;
 
@@ -13,6 +16,13 @@ package Main;
         import java.util.List;
 
 public class Main extends Application {
+
+
+    public static ArrayList<Department> departments = new ArrayList<>();
+    public static List<String> DepartmentList = new ArrayList<>();
+    public static List<String> SuppliersList = new ArrayList<>();
+    public static ArrayList<Supplier> suppliers = new ArrayList<>();
+    public static ArrayList<Product> products = new ArrayList<>();
 
 
     @Override

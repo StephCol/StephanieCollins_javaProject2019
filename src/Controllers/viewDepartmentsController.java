@@ -1,6 +1,7 @@
 package Controllers;
 
 import Main.Department;
+import Main.Main;
 import Main.Product;
 import Main.Supplier;
 import com.jfoenix.controls.JFXButton;
@@ -28,32 +29,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class viewDepartmentsController implements Initializable {
-
-
-    //-------------------ADD PRODUCT GUI ATTRIBUTES-------------------------
-    @FXML
-    private JFXTextField txtBrand;
-    @FXML
-    private JFXTextField txtRefNo;
-    @FXML
-    private JFXTextField txtStockNo;
-    @FXML
-    private JFXTextField txtName;
-    @FXML
-    private JFXTextField txtCostP;
-    @FXML
-    private JFXTextField txtSaleP;
-    @FXML
-    private JFXComboBox<String> cboSupplier;
-    @FXML
-    private JFXButton btnAddProduct;
-    @FXML
-    private JFXTextField txtProductResult;
+public class viewDepartmentsController extends Main implements Initializable {
 
     //-------------------------------VIEW DEPARTMENTS GUI ATTRIBUTES------------------------------
-    @FXML
-    public AnchorPane departmentsPane;
+
     @FXML
     private JFXTextArea txtAreaProducts;
     @FXML
@@ -66,21 +45,10 @@ public class viewDepartmentsController implements Initializable {
     private JFXTextField txtAddDepartment;
     @FXML
     private JFXButton btnAddDepartment;
-
-    //-----------------------COMMON GUI ATTRIBUTES---------------------------------
-
     @FXML
     public JFXComboBox<String> cboDepartments;
     @FXML
     private JFXButton exitButton;
-
-    //-----------------------------ARRAYS & LISTS ----------------------------------
-
-
-    public ArrayList<Department> departments = new ArrayList<>();
-    public List<String> DepartmentList = new ArrayList<>();
-    public List<String> SuppliersList = new ArrayList<>();
-    public ArrayList<Supplier> suppliers = new ArrayList<>();
 
     //-------------------------- EXIT TO DASHBOARD --------------------------------
 
@@ -89,8 +57,6 @@ public class viewDepartmentsController implements Initializable {
         //hides add Department
         exitButton.getScene().getWindow().hide();
 
-        //departmentsPane.setVisible(false);
-        //dashboardPane.setVisible(true);
         //return to Dashboard
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/dashboard.fxml"));
         Parent root = fxmlLoader.load();
@@ -107,9 +73,7 @@ public class viewDepartmentsController implements Initializable {
 
         String depart = "" ;
         Department newDepart = new Department(txtAddDepartment.getText());
-        //departments = new ArrayList<>();
         departments.add(newDepart);
-        //DepartmentList = new ArrayList<>();
         DepartmentList.add(txtAddDepartment.getText());
 
         for(Department d:departments){
@@ -149,7 +113,6 @@ public class viewDepartmentsController implements Initializable {
 
         String prodList = "";
 
-
         for (Department d : departments){
 
             if(d.getDepName().equals(selectedDepart)){
@@ -157,70 +120,6 @@ public class viewDepartmentsController implements Initializable {
             }
             txtAreaProducts.appendText(prodList);
         }
-    }
-
-    //--------------------------------------ADD PRODUCTS---------------------------------------
-
-    public void btnAddProductAction(ActionEvent actionEvent) {
-
-        String refNoAsString = txtRefNo.getText();
-        String stockAsString = txtStockNo.getText();
-        String name = txtName.getText();
-        String brand = txtBrand.getText();
-        String department = cboDepartments.getValue();
-        String supplier = cboSupplier.getValue();
-        System.out.println(supplier);
-        String costPriceAsString = txtCostP.getText();
-        String salePriceAsString = txtSaleP.getText();
-
-        if(!refNoAsString.equals("") && !stockAsString.equals("") && !name.equals("") && !brand.equals("") && !department.equals("")
-                && !supplier.equals("") && !costPriceAsString.equals("") && !salePriceAsString.equals("") ){
-
-            txtProductResult.setVisible(false);
-
-            int refNo = Integer.parseInt(refNoAsString);
-            int stock = Integer.parseInt(stockAsString);
-            Double costPrice = Double.parseDouble(costPriceAsString);
-            Double salePrice = Double.parseDouble(salePriceAsString);
-
-            if(salePrice > costPrice){
-
-                txtRefNo.clear();
-                txtStockNo.clear();
-                txtName.clear();
-                txtBrand.clear();
-                txtCostP.clear();
-                txtSaleP.clear();
-
-                Product newProduct = new Product(refNo, name, brand, stock,supplier, department, costPrice,salePrice);
-
-                System.out.println(newProduct.toString());
-
-                for(Department d : departments){
-
-                    if(d.getDepName().equals(department)){
-                        System.out.println(d.getDepName());
-
-
-                        d.addProduct(newProduct);
-                        System.out.println(d.getProductList());
-                    }
-                }//for
-            }//if
-            else{
-                txtProductResult.setText("Sale Price must be more than cost price");
-                txtProductResult.setVisible(true);
-            }
-
-
-
-        }
-        else{
-            txtProductResult.setText("Please provide all product details");
-            txtProductResult.setVisible(true);
-        }
-
-
 
     }
 
@@ -229,22 +128,9 @@ public class viewDepartmentsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        DepartmentList.add("Rings");
-        departments.add(new Department("Rings"));
-        DepartmentList.add("Watches");
-        departments.add(new Department("Watches"));
-        DepartmentList.add("Bracelets");
-        departments.add(new Department("Bracelets"));
         cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+        txtAreaProducts.setFont(new javafx.scene.text.Font(Font.MONOSPACED, 13 ));
 
-
-        /*SuppliersList.add("IBB Dublin");
-        SuppliersList.add("Swarovski");
-        SuppliersList.add("Timemark");
-        cboSupplier.setItems(FXCollections.observableArrayList(SuppliersList));*/
-
-        //cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
     }
-
 
 }//END OF CONTROLLER

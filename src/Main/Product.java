@@ -41,9 +41,8 @@ public class Product {
 
     public String toString() {
 
-        return  String.format("%-8s%-20s%-20s%-8s%-10s%-10s%-20s%-20s\n%-8d%-20s%-20s%-8d%-10.2f%-10.2f%-20s%-20s",
-                "RefNo", "Name", "Brand", "Stock", "CostPrice", "SalePrice", "Department", "Supplier",
-                getRefNo(), getName(), getBrand(), getStock(), getCostPrice(), getSalePrice(), getDepartment(), getSupplier());
+        return  String.format("%-8d%-22s%-22s%-13d%-17.2f%-15.2f\n",
+                getRefNo(), getName(), getBrand(), getStock(), getCostPrice(), getSalePrice());
 
     }
 }

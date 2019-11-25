@@ -13,7 +13,7 @@ public class Department extends Product {
 
     public Department(String depName){
         setDepName(depName);
-        new ArrayList<Product>();
+        productArray = new ArrayList<Product>();
     }
 
     public void setDepName(String depName) { this.depName = depName; }
@@ -22,15 +22,19 @@ public class Department extends Product {
 
     public String getProductList() {
         String list = "";
-        for (int i = 0; i > productArray.size(); i++) {
-            list = productArray.get(i).toString() + "\n";
+        for (Product p : productArray) {
+            list += p.toString() + "\n" ;
         }
         return list;
     }
 
 
 
-    public void addProduct(Product product) { this.productArray.add(product);}
+    public void addProduct(Product product) {
+        this.productArray.add(product);
+    }
+
+
     public String toString(){
         return String.format("%-20s", getName());
     }

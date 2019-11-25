@@ -26,12 +26,12 @@
             <Image url="@Images/jewelLogo.PNG" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="273.0" opacity="0.5" prefHeight="65.0" prefWidth="233.0" text="DEPARTMENTS" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="296.0" opacity="0.5" prefHeight="65.0" prefWidth="233.0" text="DEPARTMENTS" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="22.0" />
          </font>
       </Label>
-      <Line endX="59.0" layoutX="410.0" layoutY="56.0" startX="-100.0" stroke="#fff9f9">
+      <Line endX="59.0" layoutX="432.0" layoutY="54.0" startX="-100.0" stroke="#fff9f9">
          <effect>
             <InnerShadow color="#797272" />
          </effect>
@@ -41,12 +41,12 @@
             <ColorAdjust brightness="0.45" />
          </effect>
       </JFXComboBox>
-      <JFXTextArea id="txtAreaDepartments" fx:id="txtAreaProducts" editable="false" layoutX="208.0" layoutY="99.0" prefHeight="227.0" prefWidth="364.0" style="-fx-background-color: rgb(255,255,255,.2);">
+      <JFXTextArea id="txtAreaDepartments" fx:id="txtAreaProducts" editable="false" layoutX="208.0" layoutY="145.0" prefHeight="177.0" prefWidth="408.0" style="-fx-background-color: rgb(255,255,255,.7);">
          <font>
             <Font name="Segoe UI Light" size="13.0" />
          </font>
       </JFXTextArea>
-      <JFXButton fx:id="btnSearchDepartments" layoutX="448.0" layoutY="63.0" onAction="#btnSearchDepartments" opacity="0.71" prefHeight="25.0" prefWidth="71.0" text="SEARCH" textFill="WHITE">
+      <JFXButton fx:id="btnSearchDepartments" layoutX="480.0" layoutY="63.0" onAction="#btnSearchDepartments" opacity="0.71" prefHeight="25.0" prefWidth="71.0" text="SEARCH" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="13.0" />
          </font>
@@ -88,5 +88,35 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
+      <Label layoutX="209.0" layoutY="120.0" text="Ref" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="331.0" layoutY="120.0" text="Brand" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="245.0" layoutY="120.0" text="Name" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="414.0" layoutY="120.0" text="Stock" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="470.0" layoutY="120.0" text="Cost Price" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="550.0" layoutY="120.0" text="Sale Price" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

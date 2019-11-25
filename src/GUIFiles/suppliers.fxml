@@ -27,27 +27,27 @@
             <Image url="@Images/jewelLogo.PNG" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="318.0" layoutY="-10.0" opacity="0.5" prefHeight="65.0" prefWidth="233.0" text="SUPPLIERS" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="329.0" layoutY="-10.0" opacity="0.5" prefHeight="65.0" prefWidth="233.0" text="SUPPLIERS" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="22.0" />
          </font>
       </Label>
-      <Line endX="59.0" layoutX="455.0" layoutY="44.0" startX="-100.0" stroke="#fff9f9">
+      <Line endX="59.0" layoutX="466.0" layoutY="44.0" startX="-100.0" stroke="#fff9f9">
          <effect>
             <InnerShadow color="#797272" />
          </effect>
       </Line>
-      <JFXComboBox fx:id="cboDepartments" focusColor="WHITE" layoutX="287.0" layoutY="73.0" prefHeight="25.0" prefWidth="198.0" promptText="All Suppliers" unFocusColor="WHITE">
+      <JFXComboBox fx:id="cboSuppliers" focusColor="WHITE" layoutX="287.0" layoutY="73.0" prefHeight="25.0" prefWidth="198.0" promptText="All Suppliers" unFocusColor="WHITE">
          <effect>
             <ColorAdjust brightness="0.45" />
          </effect>
       </JFXComboBox>
-      <JFXTextArea id="txtAreaDepartments" fx:id="txtAreaProducts" editable="false" layoutX="253.0" layoutY="111.0" prefHeight="227.0" prefWidth="362.0" style="-fx-background-color: rgb(255,255,255,.2);">
+      <JFXTextArea id="txtAreaDepartments" fx:id="txtAreaProducts" editable="false" layoutX="245.0" layoutY="111.0" prefHeight="227.0" prefWidth="400.0" style="-fx-background-color: rgb(255,255,255,.7);">
          <font>
             <Font name="Segoe UI Light" size="13.0" />
          </font>
       </JFXTextArea>
-      <JFXButton fx:id="btnSearchDepartments" layoutX="496.0" layoutY="71.0" onAction="#btnSearchDepartments" opacity="0.71" prefHeight="25.0" prefWidth="71.0" text="SEARCH" textFill="WHITE">
+      <JFXButton fx:id="btnSearchSuppliers" layoutX="517.0" layoutY="71.0" onAction="#btnSearchSuppliers" opacity="0.71" prefHeight="25.0" prefWidth="71.0" text="SEARCH" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="13.0" />
          </font>
@@ -58,12 +58,12 @@
          </image>
       </ImageView>
       <JFXButton fx:id="exitButton" layoutX="588.0" layoutY="22.0" onAction="#exitButton" opacity="0.0" prefHeight="43.0" prefWidth="54.0" text="X" />
-      <JFXTextField fx:id="txtAddDepartment" focusColor="#fafafa00" layoutX="93.0" layoutY="227.0" prefHeight="37.0" prefWidth="133.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+      <JFXTextField fx:id="txtSupName" focusColor="#fafafa00" layoutX="93.0" layoutY="227.0" prefHeight="37.0" prefWidth="133.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
          <font>
             <Font name="Segoe UI Light" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="btnAddDepartment" layoutX="64.0" layoutY="320.0" onAction="#btnAddDepartmentAction" prefHeight="37.0" prefWidth="133.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="ADD SUPPLIER" textFill="WHITE">
+      <JFXButton fx:id="btnAddSupplier" layoutX="64.0" layoutY="320.0" onAction="#btnAddSupplierAction" prefHeight="37.0" prefWidth="133.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="ADD SUPPLIER" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="16.0" />
          </font>
@@ -76,7 +76,7 @@
             <Font name="Segoe UI Light" size="18.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtRemoveDepartment" focusColor="#fafafa00" layoutX="93.0" layoutY="273.0" prefHeight="37.0" prefWidth="133.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+      <JFXTextField fx:id="txtSupEmail" focusColor="#fafafa00" layoutX="93.0" layoutY="273.0" prefHeight="37.0" prefWidth="133.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
          <font>
             <Font name="Segoe UI Light" size="14.0" />
          </font>

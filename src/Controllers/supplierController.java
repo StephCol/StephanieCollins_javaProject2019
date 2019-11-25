@@ -1,57 +1,97 @@
 package Controllers;
 
+import Main.Main;
+import Main.Supplier;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class supplierController {
-
-    @FXML
-    private JFXComboBox<?> cboDepartments;
-
-    @FXML
-    private JFXTextArea txtAreaProducts;
+public class supplierController extends Main implements Initializable {
 
     @FXML
-    private JFXButton btnSearchDepartments;
-
+    private JFXComboBox<String> cboSuppliers;
+    @FXML
+    private JFXTextArea txtAreaSuppliers;
+    @FXML
+    private JFXButton btnSearchSuppliers;
     @FXML
     private JFXButton exitButton;
-
     @FXML
-    private JFXTextField txtAddDepartment;
-
+    private JFXTextField txtSupName;
     @FXML
-    private JFXButton btnAddDepartment;
-
+    private JFXButton btnAddSupplier;
     @FXML
-    private JFXTextField txtRemoveDepartment;
+    private JFXTextField txtSupEmail;
 
-    @FXML
-    void btnAddDepartmentAction(ActionEvent event) {
+    public void exitButton(javafx.event.ActionEvent actionEvent) throws IOException {
+
+        //hides add Department
+        exitButton.getScene().getWindow().hide();
+
+        //return to Dashboard
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/dashboard.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage dash = new Stage();
+        dash.initStyle(StageStyle.UNDECORATED);
+        dash.setScene(new Scene(root));
+        dash.show();
+        dash.setResizable(false);
+    }
+
+    public void btnAddSupplierAction(javafx.event.ActionEvent actionEvent) {
+
+        String supName = txtSupName.getText();
+        String supEmail = txtSupEmail.getText();
+
+        Supplier newSupplier = new Supplier(supName, supEmail);
+        suppliers.add(newSupplier);
+        SuppliersList.add(supName);
+
+        cboSuppliers.setItems(FXCollections.observableArrayList(SuppliersList));
+
+        txtSupName.clear();
+        txtSupEmail.clear();
 
     }
 
-    @FXML
-    void btnSearchDepartments(ActionEvent event) {
+    public void btnSearchSuppliers(javafx.event.ActionEvent actionEvent) {
+        String list ="";
+        String selectedSupplier = cboSuppliers.getValue();
 
+        if(selectedSupplier.equals("All Suppliers")){
+
+            for(Supplier s: suppliers){
+
+                list += s.toString();
+
+            }
+            System.out.println(list);
+            txtAreaSuppliers.appendText(list);
+        }
     }
 
-    @FXML
-    void exitButton(ActionEvent event) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-    }
 
-    public void btnSearchDepartments(javafx.event.ActionEvent actionEvent) {
-    }
+        SuppliersList.add("All Suppliers");
+        cboSuppliers.setItems(FXCollections.observableArrayList(SuppliersList));
 
-    public void exitButton(javafx.event.ActionEvent actionEvent) {
-    }
-
-    public void btnAddDepartmentAction(javafx.event.ActionEvent actionEvent) {
     }
 }

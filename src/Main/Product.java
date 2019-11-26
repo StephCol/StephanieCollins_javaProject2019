@@ -41,7 +41,7 @@ public class Product {
 
     public String toString() {
 
-        return  String.format("%-8d%-22s%-22s%-13d%-17.2f%-15.2f\n",
+        return  String.format("%-8d%-20s%-22s%-13d%-17.2f%-15.2f\n",
                 getRefNo(), getName(), getBrand(), getStock(), getCostPrice(), getSalePrice());
 
     }

@@ -76,6 +76,8 @@ public class productController extends Main implements Initializable {
         String costPriceAsString = txtCostP.getText();
         String salePriceAsString = txtSaleP.getText();
 
+        Boolean exists = false;
+
         if(!refNoAsString.equals("") || !stockAsString.equals("") || !name.equals("") || !brand.equals("") || !department.equals("")
                 && !supplier.equals("") || !costPriceAsString.equals("") || !salePriceAsString.equals("") ){
 
@@ -86,30 +88,40 @@ public class productController extends Main implements Initializable {
             Double costPrice = Double.parseDouble(costPriceAsString);
             Double salePrice = Double.parseDouble(salePriceAsString);
 
-            if(salePrice > costPrice){
 
+            if(salePrice > costPrice){
 
                 Product newProduct = new Product(refNo, name, brand, stock,supplier, department, costPrice,salePrice);
 
-                System.out.println(newProduct.toString());
-
-                for(Department d : departments){
-
-                    if(d.getDepName().equals(department)){
-
-                        d.addProduct(newProduct);
-                        System.out.println(d.getProductList());
-
+                //Make sure the reference number does not already exist
+                for(Product p: products){
+                    if(p.getRefNo()==refNo){
+                        exists = true;
                     }
-                }//for
+                }
 
-                txtRefNo.clear();
-                txtStockNo.clear();
-                txtName.clear();
-                txtBrand.clear();
-                txtCostP.clear();
-                txtSaleP.clear();
+                if(!exists) {
+                    products.add(newProduct);
 
+                    for (Department d : departments) {
+
+                        if (d.getDepName().equals(department)) {
+                            d.addProduct(newProduct);
+                        }
+                    }//for
+
+                    //Reset text boxes
+                    txtRefNo.clear();
+                    txtStockNo.clear();
+                    txtName.clear();
+                    txtBrand.clear();
+                    txtCostP.clear();
+                    txtSaleP.clear();
+                }
+                else{
+                    txtProductResult.setText("Reference already exists");
+                    txtProductResult.setVisible(true);
+                }
             }//if
             else{
                 txtProductResult.setText("Sale Price must be more than cost price");

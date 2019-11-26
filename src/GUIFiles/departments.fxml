@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="departmentsPane" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.viewDepartmentsController">
+<AnchorPane fx:id="departmentsPane" prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.departmentsController">
    <children>
       <ImageView fitHeight="378.0" fitWidth="653.0" layoutX="-17.0" layoutY="-22.0" pickOnBounds="true" preserveRatio="true">
          <image>

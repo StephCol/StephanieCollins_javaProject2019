@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="363.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.stockController">
+   <children>
+      <ImageView fitHeight="378.0" fitWidth="653.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/geometricBG.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="192.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/jewelLogo.PNG" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="319.0" layoutY="-11.0" opacity="0.5" prefHeight="65.0" prefWidth="233.0" text="ORDER STOCK" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="22.0" />
+         </font>
+      </Label>
+      <Line endX="59.0" layoutX="455.0" layoutY="44.0" startX="-100.0" stroke="#fff9f9">
+         <effect>
+            <InnerShadow color="#797272" />
+         </effect>
+      </Line>
+      <JFXComboBox fx:id="cboStock" focusColor="WHITE" layoutX="274.0" layoutY="56.0" prefHeight="25.0" prefWidth="198.0" promptText="Stock" unFocusColor="WHITE">
+         <effect>
+            <ColorAdjust brightness="0.45" />
+         </effect>
+      </JFXComboBox>
+      <JFXTextArea id="txtAreaDepartments" fx:id="txtAreaProducts" editable="false" layoutX="217.0" layoutY="124.0" prefHeight="90.0" prefWidth="408.0" style="-fx-background-color: rgb(255,255,255,.7);">
+         <font>
+            <Font name="Segoe UI Light" size="13.0" />
+         </font>
+      </JFXTextArea>
+      <JFXButton fx:id="btnSearchStock" layoutX="489.0" layoutY="54.0" onAction="#btnSearchStockAction" opacity="0.71" prefHeight="25.0" prefWidth="71.0" text="SEARCH" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="28.0" fitWidth="23.0" layoutX="612.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/x4.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="exitButton" layoutX="585.0" layoutY="25.0" onAction="#exitButton" opacity="0.0" prefHeight="43.0" prefWidth="54.0" text="X" />
+      <Label layoutX="220.0" layoutY="96.0" text="Ref" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="336.0" layoutY="96.0" text="Brand" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="255.0" layoutY="96.0" text="Name" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="419.0" layoutY="96.0" text="Stock" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="483.0" layoutY="96.0" text="Cost Price" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="555.0" layoutY="96.0" text="Sale Price" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="171.0" opacity="0.5" prefHeight="65.0" prefWidth="185.0" text="ORDER ITEMS" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="22.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtRefNo" focusColor="#fafafa00" layoutX="95.0" layoutY="223.0" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+         <font>
+            <Font name="Segoe UI Light" size="14.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnAddToOrder" layoutX="40.0" layoutY="317.0" onAction="#btnAddToOrderAction" prefHeight="37.0" prefWidth="133.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="ADD TO ORDER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label alignment="CENTER" layoutX="14.0" layoutY="220.0" opacity="0.94" prefHeight="43.0" prefWidth="61.0" text="REF NO" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtAmt" focusColor="#fafafa00" layoutX="95.0" layoutY="272.0" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+         <font>
+            <Font name="Segoe UI Light" size="14.0" />
+         </font>
+      </JFXTextField>
+      <Label alignment="CENTER" layoutX="10.0" layoutY="269.0" opacity="0.94" prefHeight="43.0" prefWidth="85.0" text="AMOUNT" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="18.0" />
+         </font>
+      </Label>
+      <JFXTextArea id="txtAreaDepartments" fx:id="txtAreaOrder" editable="false" layoutX="217.0" layoutY="256.0" prefHeight="98.0" prefWidth="290.0" style="-fx-background-color: rgb(255,255,255,.7);">
+         <font>
+            <Font name="Segoe UI Light" size="13.0" />
+         </font>
+      </JFXTextArea>
+      <Label layoutX="220.0" layoutY="231.0" text="Ref" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="231.0" text="Supplier Email" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="382.0" layoutY="231.0" text="Amount" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="441.0" layoutY="231.0" text="Price" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btnPlaceOrder" layoutX="525.0" layoutY="317.0" onAction="#btnPlaceOrderAction" prefHeight="37.0" prefWidth="116.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="PLACE ORDER" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="547.0" layoutY="246.0" text="Order Total" textFill="#f2f2f2">
+         <font>
+            <Font name="Segoe UI Light" size="15.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtTotal" alignment="CENTER" focusColor="#fafafa00" layoutX="525.0" layoutY="272.0" prefHeight="37.0" prefWidth="116.0" promptText="€€€€€€" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+         <font>
+            <Font name="Segoe UI Light" size="14.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>

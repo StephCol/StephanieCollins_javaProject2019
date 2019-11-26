@@ -25,7 +25,7 @@ public class Supplier {
     public void setEmail(String email) { this.email = email; }
     public void setSupplierName(String name) { this.name = name; }
 
-    public String toString() { return String.format("Supplier Name: %-20s\nSupplier Email: %-20s\n ",
+    public String toString() { return String.format("%-40s%-20s\n ",
                  getSupplierName(), getEmail());
     }
 }

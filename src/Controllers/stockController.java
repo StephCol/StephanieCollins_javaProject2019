@@ -29,19 +29,14 @@ public class stockController extends Main implements Initializable {
     @FXML
     private JFXTextArea txtAreaProducts;
     @FXML
-    private JFXButton btnSearchStock;
-    @FXML
     private JFXButton exitButton;
     @FXML
     private JFXTextField txtRefNo;
     @FXML
-    private JFXButton btnAddToOrder;
-    @FXML
     private JFXTextField txtAmt;
     @FXML
     private JFXTextArea txtAreaOrder;
-    @FXML
-    private JFXButton btnPlaceOrder;
+
     @FXML
     private JFXTextField txtTotal;
 
@@ -68,9 +63,9 @@ public class stockController extends Main implements Initializable {
         int refNo = Integer.parseInt(refNoAsString);
         String amtAsString = txtAmt.getText();
         int amt = Integer.parseInt(amtAsString);
-        String supplierName = "";
+        String supplierName;
         String email = "";
-        Double price, itemTotal=0.0;
+        Double price, itemTotal = 0.0;
 
         for(Product p: products){                               //Search through products array
 
@@ -79,6 +74,7 @@ public class stockController extends Main implements Initializable {
                 supplierName = p.getSupplier();                 //get the supplier of that product
                 price = p.getCostPrice();                       //get cost price of the product
                 itemTotal = amt*price;
+                p.setStock(p.getStock()+amt);
 
                 for(Supplier s: suppliers){
                     if(s.getSupplierName().equals(supplierName)){
@@ -94,10 +90,27 @@ public class stockController extends Main implements Initializable {
         orderTotal += itemTotal;
         txtTotal.setText("€" + orderTotal);
 
+        txtRefNo.clear();
+        txtAmt.clear();
 
     }
 
-    public void btnPlaceOrderAction(javafx.event.ActionEvent actionEvent) {
+    public void btnPlaceOrderAction(javafx.event.ActionEvent actionEvent) throws IOException {
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/confirmOrder.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage dash = new Stage();
+        dash.initStyle(StageStyle.UNDECORATED);
+        dash.setScene(new Scene(root));
+        dash.show();
+        dash.setResizable(false);
+
+        txtAreaProducts.clear();
+        txtAreaOrder.clear();
+        txtRefNo.clear();
+        txtAmt.clear();
+        txtTotal.clear();
 
 
     }
@@ -126,6 +139,8 @@ public class stockController extends Main implements Initializable {
 
     }
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<String> options = new ArrayList<String>();
@@ -136,4 +151,6 @@ public class stockController extends Main implements Initializable {
         cboStock.setItems(FXCollections.observableArrayList(options));
 
     }
+
+
 }

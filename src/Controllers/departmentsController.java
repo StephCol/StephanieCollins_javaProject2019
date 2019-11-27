@@ -8,18 +8,13 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class departmentsController extends Main implements Initializable {
+public class departmentsController implements Initializable {
 
     //-------------------------------VIEW DEPARTMENTS GUI ATTRIBUTES------------------------------
 
@@ -33,14 +28,10 @@ public class departmentsController extends Main implements Initializable {
     public JFXComboBox<String> cboDepartments;
     @FXML
     private JFXButton exitButton;
-    @FXML
-    private JFXTextField txtAddDepartResult;
-    @FXML
-    private JFXTextField txtRemoveDepartResult;
 
     //-------------------------- EXIT TO DASHBOARD --------------------------------
 
-    public void exitButton(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void exitButton()  {
 
         //hides add Department
         exitButton.getScene().getWindow().hide();
@@ -51,25 +42,13 @@ public class departmentsController extends Main implements Initializable {
 
     public void btnAddDepartmentAction()  {
 
-        String result = "";
+
         Department newDepart = new Department(txtAddDepartment.getText());
-
-
-        for(Department d:departments){
-            if(d.getDepName().toLowerCase().equals(newDepart.getDepName().toLowerCase())){
-                txtAddDepartResult.setText("Department already exists");
-                txtAddDepartResult.setVisible(true);
-            }
-            else{
-                departments.add(newDepart);
-                DepartmentList.add(txtAddDepartment.getText());
-                txtAddDepartResult.setText("Department added");
-                txtAddDepartResult.setVisible(true);
-            }
-        }
+        Main.departments.add(newDepart);
+        Main.DepartmentList.add(txtAddDepartment.getText());
 
         //--REFERENCE-- GeeksforGeeks.org, I figured out how to populate the JFXCombo Box through this website.
-        cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+        cboDepartments.setItems(FXCollections.observableArrayList(Main.DepartmentList));
         txtAddDepartment.clear();
 
     }
@@ -78,11 +57,11 @@ public class departmentsController extends Main implements Initializable {
 
         String remove = txtRemoveDepartment.getText();
 
-        for (int i = 0; i < DepartmentList.size(); i++) {
-            if (remove.equals(DepartmentList.get(i))) {
-                DepartmentList.remove(i);
-                departments.remove(i);
-                cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+        for (int i = 0; i < Main.DepartmentList.size(); i++) {
+            if (remove.equals(Main.DepartmentList.get(i))) {
+                Main.DepartmentList.remove(i);
+                Main.departments.remove(i);
+                cboDepartments.setItems(FXCollections.observableArrayList(Main.DepartmentList));
             }
         }
         txtRemoveDepartment.clear();
@@ -96,7 +75,7 @@ public class departmentsController extends Main implements Initializable {
 
         String prodList = "";
 
-        for (Department d : departments){
+        for (Department d : Main.departments){
 
             if(d.getDepName().equals(selectedDepart)){
                 prodList = d.getProductList();
@@ -110,7 +89,7 @@ public class departmentsController extends Main implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
+        cboDepartments.setItems(FXCollections.observableArrayList(Main.DepartmentList));
         txtAreaProducts.setFont(new javafx.scene.text.Font(Font.MONOSPACED, 13 ));
 
     }

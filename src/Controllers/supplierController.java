@@ -13,7 +13,7 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class supplierController extends Main implements Initializable {
+public class supplierController implements Initializable {
 
     @FXML
     private JFXComboBox<String> cboSuppliers;
@@ -32,10 +32,10 @@ public class supplierController extends Main implements Initializable {
         String supEmail = txtSupEmail.getText();
 
         Supplier newSupplier = new Supplier(supName, supEmail);
-        suppliers.add(newSupplier);
-        SuppliersList.add(supName);
+        Main.suppliers.add(newSupplier);
+        Main.SuppliersList.add(supName);
 
-        cboSuppliers.setItems(FXCollections.observableArrayList(SuppliersList));
+        cboSuppliers.setItems(FXCollections.observableArrayList(Main.SuppliersList));
 
         txtSupName.clear();
         txtSupEmail.clear();
@@ -46,7 +46,7 @@ public class supplierController extends Main implements Initializable {
         String details ="";
         String selectedSupplier = cboSuppliers.getValue();
 
-            for(Supplier s: suppliers){
+            for(Supplier s: Main.suppliers){
 
                 if(s.getSupplierName().equals(selectedSupplier)) {
                     details = s.toString();
@@ -61,7 +61,7 @@ public class supplierController extends Main implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //Set list of suppliers on startup
-        cboSuppliers.setItems(FXCollections.observableArrayList(SuppliersList));
+        cboSuppliers.setItems(FXCollections.observableArrayList(Main.SuppliersList));
         //Set font for text area
         txtAreaSuppliers.setFont(new javafx.scene.text.Font(Font.MONOSPACED, 13 ));
 

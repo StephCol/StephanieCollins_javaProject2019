@@ -1,14 +1,21 @@
 package Controllers;
 
 import Main.Main;
+import com.jfoenix.controls.JFXButton;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
 
-public class dashboardController extends Main{
+public class dashboardController {
+
+    @FXML
+    public AnchorPane dashboardPane;
+
 
     //------------------------------LOAD ADD/VIEW SUPPLIERS GUI--------------------------------
     public void addSupplierAction(javafx.event.ActionEvent actionEvent) throws IOException {
@@ -37,6 +44,7 @@ public class dashboardController extends Main{
     //----------------------------LOAD IN STOCK/ OUT OF STOCK GUI--------------------------------
 
     public void inStockAction(javafx.event.ActionEvent actionEvent) throws IOException {
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/stockOrder.fxml"));
         Parent root = fxmlLoader.load();
         Stage prods = new Stage();
@@ -60,6 +68,7 @@ public class dashboardController extends Main{
 
     public void viewDepartmentsAction(javafx.event.ActionEvent actionEvent) throws IOException {
 
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/departments.fxml"));
         Parent root = fxmlLoader.load();
         Stage depart = new Stage();
@@ -70,6 +79,7 @@ public class dashboardController extends Main{
     }
 
     public void addDepartmentAction(javafx.event.ActionEvent actionEvent) throws IOException {
+
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/departments.fxml"));
         Parent root = fxmlLoader.load();

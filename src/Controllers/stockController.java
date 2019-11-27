@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class stockController extends Main implements Initializable {
+public class stockController implements Initializable {
 
     @FXML
     private JFXComboBox<String> cboStock;
@@ -58,7 +59,7 @@ public class stockController extends Main implements Initializable {
         String email = "";
         Double price, itemTotal = 0.0;
 
-        for(Product p: products){                               //Search through products array
+        for(Product p: Main.products){                               //Search through products array
 
             if(p.getRefNo() == refNo){                          //Find the one with the entered refNo
 
@@ -67,7 +68,7 @@ public class stockController extends Main implements Initializable {
                 itemTotal = amt*price;
                 p.setStock(p.getStock()+amt);
 
-                for(Supplier s: suppliers){
+                for(Supplier s: Main.suppliers){
                     if(s.getSupplierName().equals(supplierName)){
                         email = s.getEmail();
                     }
@@ -86,15 +87,17 @@ public class stockController extends Main implements Initializable {
 
     }
 
-    public void btnPlaceOrderAction() throws IOException {
+    @FXML
+    public void btnPlaceOrderAction(ActionEvent actionEvent) throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/confirmOrder.fxml"));
         Parent root = fxmlLoader.load();
-        Stage dash = new Stage();
-        dash.initStyle(StageStyle.UNDECORATED);
-        dash.setScene(new Scene(root));
-        dash.show();
-        dash.setResizable(false);
+        Stage depart = new Stage();
+        depart.initStyle(StageStyle.UNDECORATED);
+        depart.setScene(new Scene(root));
+        depart.show();
+        depart.setResizable(false);
+
     }
 
     public void btnSearchStockAction() {
@@ -103,14 +106,14 @@ public class stockController extends Main implements Initializable {
         String productlist="";
 
         if(option.equals("In Stock")){
-            for(Product p: products){
+            for(Product p: Main.products){
                 if(p.getStock()>0){
                     productlist += p.toString();
                 }
             }
         }
         else if(option.equals("Out of Stock")){
-            for(Product p: products){
+            for(Product p: Main.products){
                 if(p.getStock()==0){
                     productlist += p.toString();
                 }

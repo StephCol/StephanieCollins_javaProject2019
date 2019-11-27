@@ -7,21 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="366.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.confirmController">
-   <ImageView fitHeight="378.0" fitWidth="653.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@Images/geometricBG.jpg"/>
-               //
-            </ImageView>
-   <ImageView fitHeight="192.0" fitWidth="209.0" layoutX="222.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@Images/jewelLogo.PNG"/>
-   </ImageView>
-   <Label layoutX="154.0" layoutY="211.0" text="You order has been completed!" textFill="WHITE">
-      <font>
-         <Font name="Segoe UI Light" size="26.0"/>
-      </font>
-   </Label>
-   <Button fx:id="btnOK" layoutX="313.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnOKAction"
-           style="-fx-border-radius: 0; -fx-background-color: rgb(255,255,255,.7); -fx-border-style: none; -fx-padding: 5px;"
-           text="OK" textAlignment="CENTER"/>
+<AnchorPane prefHeight="366.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.orderConfirmController">
+   <children>
+      <ImageView fitHeight="378.0" fitWidth="653.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/geometricBG.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="192.0" fitWidth="209.0" layoutX="222.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/jewelLogo.PNG" />
+         </image>
+      </ImageView>
+      <Label layoutX="154.0" layoutY="211.0" text="You order has been completed!" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Light" size="26.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnOK" layoutX="313.0" layoutY="256.0" mnemonicParsing="false" onAction="#btnOKAction" style="-fx-border-radius: 0; -fx-background-color: rgb(255,255,255,.7); -fx-border-style: none; -fx-padding: 5px;" text="OK" textAlignment="CENTER" />
+   </children>
 </AnchorPane>

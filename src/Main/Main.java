@@ -9,7 +9,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,6 +30,22 @@ public class Main extends Application implements Serializable {
     //This launches the start of the application
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        File supInFile = new File("supplierArrays.data");
+        FileInputStream supInFileStream = new FileInputStream(supInFile);
+        ObjectInputStream sos = new ObjectInputStream(supInFileStream);
+        SuppliersList = (List<String>) sos.readObject();
+        suppliers = (ArrayList<Supplier>) sos.readObject();
+        sos.close();
+
+        File depAndProdInFile = new File("depAndProdArrays.data");
+        FileInputStream depAndProdInFileStream = new FileInputStream(depAndProdInFile);
+        ObjectInputStream dos = new ObjectInputStream(depAndProdInFileStream);
+        DepartmentList = (List<String>) dos.readObject();
+        departments = (ArrayList<Department>) dos.readObject();
+        products = (ArrayList<Product>) dos.readObject();
+        dos.close();
+
         //Load Welcome Page
         Parent root = FXMLLoader.load(getClass().getResource("../GUIFiles/index.fxml"));
         primaryStage.setScene(new Scene(root));

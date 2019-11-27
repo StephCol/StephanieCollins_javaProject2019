@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class productController extends Main implements Initializable {
+public class productController implements Initializable {
 
     //-------------------ADD PRODUCT GUI ATTRIBUTES-------------------------
     @FXML
@@ -75,16 +75,16 @@ public class productController extends Main implements Initializable {
                 Product newProduct = new Product(refNo, name, brand, stock,supplier, department, costPrice,salePrice);
 
                 //Make sure the reference number does not already exist
-                for(Product p: products){
+                for(Product p: Main.products){
                     if(p.getRefNo()==refNo){
                         exists = true;
                     }
                 }
 
                 if(!exists) {
-                    products.add(newProduct);
+                    Main.products.add(newProduct);
 
-                    for (Department d : departments) {
+                    for (Department d : Main.departments) {
 
                         if (d.getDepName().equals(department)) {
                             d.addProduct(newProduct);
@@ -120,7 +120,7 @@ public class productController extends Main implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Load list of Departments and Suppliers on load
-        cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
-        cboSupplier.setItems(FXCollections.observableArrayList(SuppliersList));
+        cboDepartments.setItems(FXCollections.observableArrayList(Main.DepartmentList));
+        cboSupplier.setItems(FXCollections.observableArrayList(Main.SuppliersList));
     }
 }//END OF CONTROLLER

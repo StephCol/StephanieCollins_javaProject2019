@@ -16,7 +16,7 @@ public class indexController  {
 
     //---------------------------LOAD DASHBOARD---------------------------------------
     @FXML
-    public void enterAction(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void enterAction() throws IOException {
 
         //hides welcome page
         enter.getScene().getWindow().hide();

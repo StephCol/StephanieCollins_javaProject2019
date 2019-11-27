@@ -8,14 +8,8 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import java.awt.*;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,7 +26,7 @@ public class supplierController extends Main implements Initializable {
     @FXML
     private JFXTextField txtSupEmail;
 
-    public void btnAddSupplierAction(javafx.event.ActionEvent actionEvent) {
+    public void btnAddSupplierAction() {
 
         String supName = txtSupName.getText();
         String supEmail = txtSupEmail.getText();
@@ -48,7 +42,7 @@ public class supplierController extends Main implements Initializable {
 
     }
 
-    public void btnSearchSuppliers(javafx.event.ActionEvent actionEvent) {
+    public void btnSearchSuppliers() {
         String details ="";
         String selectedSupplier = cboSuppliers.getValue();
 
@@ -75,19 +69,9 @@ public class supplierController extends Main implements Initializable {
 
     //-------------------------- EXIT TO DASHBOARD --------------------------------
 
-    public void exitButton(javafx.event.ActionEvent actionEvent) throws IOException {
-
-        //hides add Department
+    public void exitButton() {
+         //hides Supplier GUI
         exitButton.getScene().getWindow().hide();
-
-        //return to Dashboard
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/dashboard.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage dash = new Stage();
-        dash.initStyle(StageStyle.UNDECORATED);
-        dash.setScene(new Scene(root));
-        dash.show();
-        dash.setResizable(false);
     }
 
 }

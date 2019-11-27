@@ -33,6 +33,10 @@ public class departmentsController extends Main implements Initializable {
     public JFXComboBox<String> cboDepartments;
     @FXML
     private JFXButton exitButton;
+    @FXML
+    private JFXTextField txtAddDepartResult;
+    @FXML
+    private JFXTextField txtRemoveDepartResult;
 
     //-------------------------- EXIT TO DASHBOARD --------------------------------
 
@@ -41,38 +45,36 @@ public class departmentsController extends Main implements Initializable {
         //hides add Department
         exitButton.getScene().getWindow().hide();
 
-        //return to Dashboard
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/dashboard.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage dash = new Stage();
-        dash.initStyle(StageStyle.UNDECORATED);
-        dash.setScene(new Scene(root));
-        dash.show();
-        dash.setResizable(false);
     }
 
     //---------------------------ADD AND REMOVE DEPARTMENTS--------------------------------------
 
-    public void btnAddDepartmentAction(javafx.event.ActionEvent actionEvent) throws IOException {
+    public void btnAddDepartmentAction()  {
 
-        String depart = "" ;
+        String result = "";
         Department newDepart = new Department(txtAddDepartment.getText());
-        departments.add(newDepart);
-        DepartmentList.add(txtAddDepartment.getText());
+
 
         for(Department d:departments){
-            depart += d.getDepName() + " " ;
+            if(d.getDepName().toLowerCase().equals(newDepart.getDepName().toLowerCase())){
+                txtAddDepartResult.setText("Department already exists");
+                txtAddDepartResult.setVisible(true);
+            }
+            else{
+                departments.add(newDepart);
+                DepartmentList.add(txtAddDepartment.getText());
+                txtAddDepartResult.setText("Department added");
+                txtAddDepartResult.setVisible(true);
+            }
         }
 
-        System.out.println(depart);
-        System.out.println(DepartmentList.toString());
-
+        //--REFERENCE-- GeeksforGeeks.org, I figured out how to populate the JFXCombo Box through this website.
         cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
         txtAddDepartment.clear();
 
     }
 
-    public void btnRemoveDepartmentAction(javafx.event.ActionEvent actionEvent) {
+    public void btnRemoveDepartmentAction() {
 
         String remove = txtRemoveDepartment.getText();
 
@@ -88,7 +90,7 @@ public class departmentsController extends Main implements Initializable {
 
     //---------------------SEARCH DEPARTMENTS & LOAD PRODUCTS TO TEXT AREA--------------------
 
-    public void btnSearchDepartments(javafx.event.ActionEvent actionEvent) {
+    public void btnSearchDepartments() {
 
         String selectedDepart = cboDepartments.getValue();
 
@@ -101,7 +103,6 @@ public class departmentsController extends Main implements Initializable {
             }
             txtAreaProducts.setText(prodList);
         }
-
     }
 
     //----------------------------------------IMPLEMENT INTERFACE--------------------------------------------

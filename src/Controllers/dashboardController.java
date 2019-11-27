@@ -1,40 +1,17 @@
 package Controllers;
 
 import Main.Main;
-import com.jfoenix.controls.JFXButton;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class dashboardController extends Main{
 
-    @FXML
-    private JFXButton addSupplier;
-    @FXML
-    private JFXButton viewSuppliers;
-    @FXML
-    private JFXButton inStock;
-    @FXML
-    private JFXButton outStock;
-    @FXML
-    private JFXButton viewDepartments;
-    @FXML
-    private JFXButton addDepartment;
-    @FXML
-    private JFXButton addProduct;
-    @FXML
-    public AnchorPane dashboardPane;
-
-
     //------------------------------LOAD ADD/VIEW SUPPLIERS GUI--------------------------------
     public void addSupplierAction(javafx.event.ActionEvent actionEvent) throws IOException {
-
-        addSupplier.getScene().getWindow().hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/suppliers.fxml"));
         Parent root = fxmlLoader.load();
@@ -48,8 +25,6 @@ public class dashboardController extends Main{
 
     public void viewSuppliersAction(javafx.event.ActionEvent actionEvent) throws IOException {
 
-        viewSuppliers.getScene().getWindow().hide();
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/suppliers.fxml"));
         Parent root = fxmlLoader.load();
         Stage depart = new Stage();
@@ -62,8 +37,6 @@ public class dashboardController extends Main{
     //----------------------------LOAD IN STOCK/ OUT OF STOCK GUI--------------------------------
 
     public void inStockAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        inStock.getScene().getWindow().hide();
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/stockOrder.fxml"));
         Parent root = fxmlLoader.load();
         Stage prods = new Stage();
@@ -73,7 +46,6 @@ public class dashboardController extends Main{
         prods.setResizable(false);
     }
     public void outStockAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        outStock.getScene().getWindow().hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/stockOrder.fxml"));
         Parent root = fxmlLoader.load();
@@ -87,11 +59,6 @@ public class dashboardController extends Main{
     //------------------------------LOAD ADD/VIEW DEPARTMENTS GUI--------------------------------
 
     public void viewDepartmentsAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        System.out.println(DepartmentList.toString());
-
-        viewDepartments.getScene().getWindow().hide();
-
-        //dashboardPane.setVisible(false);
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/departments.fxml"));
         Parent root = fxmlLoader.load();
@@ -103,7 +70,6 @@ public class dashboardController extends Main{
     }
 
     public void addDepartmentAction(javafx.event.ActionEvent actionEvent) throws IOException {
-        //addDepartment.getScene().getWindow().hide();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/departments.fxml"));
         Parent root = fxmlLoader.load();
@@ -118,8 +84,6 @@ public class dashboardController extends Main{
 
     public void addProductAction(javafx.event.ActionEvent actionEvent) throws IOException {
 
-        addProduct.getScene().getWindow().hide();
-
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/products.fxml"));
         Parent root = fxmlLoader.load();
         Stage prods = new Stage();
@@ -131,10 +95,15 @@ public class dashboardController extends Main{
     }
     //----------------------------------------CLOSE PROGRAM--------------------------------------
 
-    public void exitMessage(javafx.scene.input.MouseEvent mouseEvent) {
-        //hides dashboard
-        addDepartment.getScene().getWindow().hide();
-        System.exit(0);
+    public void exitMessage(javafx.scene.input.MouseEvent mouseEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/confirmExit.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage dash = new Stage();
+        dash.initStyle(StageStyle.UNDECORATED);
+        dash.setScene(new Scene(root));
+        dash.show();
+        dash.setResizable(false);
     }
 
 }

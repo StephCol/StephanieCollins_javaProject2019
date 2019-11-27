@@ -8,7 +8,6 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,21 +42,13 @@ public class stockController extends Main implements Initializable {
     private Double orderTotal = 0.0;
 
 
-    public void exitButton(javafx.event.ActionEvent actionEvent) throws IOException {
-        //hides add Department
+    public void exitButton() {
+        //hides Stock GUI
         exitButton.getScene().getWindow().hide();
 
-        //return to Dashboard
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/dashboard.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage dash = new Stage();
-        dash.initStyle(StageStyle.UNDECORATED);
-        dash.setScene(new Scene(root));
-        dash.show();
-        dash.setResizable(false);
     }
 
-    public void btnAddToOrderAction(javafx.event.ActionEvent actionEvent) {
+    public void btnAddToOrderAction() {
 
         String refNoAsString = txtRefNo.getText();
         int refNo = Integer.parseInt(refNoAsString);
@@ -95,8 +86,7 @@ public class stockController extends Main implements Initializable {
 
     }
 
-    public void btnPlaceOrderAction(javafx.event.ActionEvent actionEvent) throws IOException {
-
+    public void btnPlaceOrderAction() throws IOException {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/confirmOrder.fxml"));
         Parent root = fxmlLoader.load();
@@ -105,17 +95,9 @@ public class stockController extends Main implements Initializable {
         dash.setScene(new Scene(root));
         dash.show();
         dash.setResizable(false);
-
-        txtAreaProducts.clear();
-        txtAreaOrder.clear();
-        txtRefNo.clear();
-        txtAmt.clear();
-        txtTotal.clear();
-
-
     }
 
-    public void btnSearchStockAction(ActionEvent actionEvent) {
+    public void btnSearchStockAction() {
 
         String option = cboStock.getValue();
         String productlist="";
@@ -136,20 +118,14 @@ public class stockController extends Main implements Initializable {
         }
 
         txtAreaProducts.setText(productlist);
-
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         List<String> options = new ArrayList<String>();
-
         options.add("In Stock");
         options.add("Out of Stock");
-
         cboStock.setItems(FXCollections.observableArrayList(options));
-
     }
 
 

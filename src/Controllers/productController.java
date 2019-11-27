@@ -7,15 +7,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -45,27 +38,15 @@ public class productController extends Main implements Initializable {
 
     //-------------------------- EXIT TO DASHBOARD --------------------------------
 
-    public void exitButton(javafx.event.ActionEvent actionEvent) throws IOException {
-
-        //hides add Department
+    public void exitButton()  {
+        //hides Product GUI
         exitButton.getScene().getWindow().hide();
-
-        //departmentsPane.setVisible(false);
-        //dashboardPane.setVisible(true);
-        //return to Dashboard
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/GUIFiles/dashboard.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage dash = new Stage();
-        dash.initStyle(StageStyle.UNDECORATED);
-        dash.setScene(new Scene(root));
-        dash.show();
-        dash.setResizable(false);
     }
 
 
     //--------------------------------------ADD PRODUCTS---------------------------------------
 
-    public void btnAddProductAction(ActionEvent actionEvent) {
+    public void btnAddProductAction() {
 
         String refNoAsString = txtRefNo.getText();
         String stockAsString = txtStockNo.getText();
@@ -138,12 +119,8 @@ public class productController extends Main implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
         //Load list of Departments and Suppliers on load
         cboDepartments.setItems(FXCollections.observableArrayList(DepartmentList));
         cboSupplier.setItems(FXCollections.observableArrayList(SuppliersList));
-
     }
-
-
 }//END OF CONTROLLER

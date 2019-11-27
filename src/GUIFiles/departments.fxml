@@ -57,12 +57,12 @@
          </image>
       </ImageView>
       <JFXButton fx:id="exitButton" layoutX="566.0" layoutY="11.0" onAction="#exitButton" opacity="0.0" prefHeight="43.0" prefWidth="54.0" text="X" />
-      <JFXTextField fx:id="txtAddDepartment" focusColor="#fafafa00" layoutX="12.0" layoutY="223.0" prefHeight="37.0" prefWidth="101.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
+      <JFXTextField fx:id="txtAddDepartment" focusColor="#fafafa00" layoutX="11.0" layoutY="205.0" prefHeight="37.0" prefWidth="101.0" style="-fx-background-color: rgb(255,255,255, 0.5);" unFocusColor="TRANSPARENT">
          <font>
             <Font name="Segoe UI Light" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="btnAddDepartment" layoutX="121.0" layoutY="223.0" onAction="#btnAddDepartmentAction" prefHeight="37.0" prefWidth="78.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="ADD" textFill="WHITE">
+      <JFXButton fx:id="btnAddDepartment" layoutX="121.0" layoutY="205.0" onAction="#btnAddDepartmentAction" prefHeight="37.0" prefWidth="78.0" style="-fx-border-color: #CCC; -fx-padding: 5PX;" text="ADD" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="16.0" />
          </font>
@@ -70,7 +70,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <Label alignment="CENTER" layoutX="6.0" layoutY="170.0" opacity="0.94" prefHeight="43.0" prefWidth="198.0" text="DEPARTMENT NAME" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="6.0" layoutY="170.0" opacity="0.94" prefHeight="29.0" prefWidth="198.0" text="DEPARTMENT NAME" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Segoe UI Light" size="18.0" />
          </font>
@@ -118,5 +118,7 @@
             <Font name="Segoe UI Light" size="15.0" />
          </font>
       </Label>
+      <JFXTextField fx:id="txtAddDepartResult" editable="false" layoutX="11.0" layoutY="242.0" prefHeight="25.0" prefWidth="188.0" visible="false" />
+      <JFXTextField fx:id="txtRemoveDepartResult" editable="false" layoutX="11.0" layoutY="310.0" prefHeight="25.0" prefWidth="188.0" visible="false" />
    </children>
 </AnchorPane>

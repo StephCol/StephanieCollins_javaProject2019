@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import java.awt.*;
@@ -15,6 +16,10 @@ import java.util.ResourceBundle;
 
 public class supplierController implements Initializable {
 
+    @FXML
+    public JFXButton btnAddSupplier;
+    @FXML
+    public JFXButton btnRemoveSupplier;
     @FXML
     private JFXComboBox<String> cboSuppliers;
     @FXML
@@ -37,6 +42,22 @@ public class supplierController implements Initializable {
 
         cboSuppliers.setItems(FXCollections.observableArrayList(Main.SuppliersList));
 
+        txtSupName.clear();
+        txtSupEmail.clear();
+
+    }
+
+    public void btnRemoveSupplierAction(ActionEvent actionEvent) {
+
+        String remove = txtSupName.getText();
+
+        for (int i = 0; i < Main.SuppliersList.size(); i++) {
+            if (remove.equals(Main.SuppliersList.get(i))) {
+                Main.SuppliersList.remove(i);
+                Main.suppliers.remove(i);
+                cboSuppliers.setItems(FXCollections.observableArrayList(Main.SuppliersList));
+            }
+        }
         txtSupName.clear();
         txtSupEmail.clear();
 
@@ -67,11 +88,13 @@ public class supplierController implements Initializable {
 
     }
 
+
     //-------------------------- EXIT TO DASHBOARD --------------------------------
 
     public void exitButton() {
          //hides Supplier GUI
         exitButton.getScene().getWindow().hide();
     }
+
 
 }

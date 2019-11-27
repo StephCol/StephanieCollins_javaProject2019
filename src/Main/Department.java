@@ -92,9 +92,6 @@ public class Department implements Serializable {
      * @return a boolean value of true or false to compare department names
      */
     public boolean equals(Department d){
-        if(this.getDepName().equals(d.getDepName()))
-            return true;
-        else
-            return false;
+        return this.getDepName().equals(d.getDepName());
     }
 }

@@ -1,7 +1,5 @@
 package Controllers;
 
-import Main.Main;
-import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
